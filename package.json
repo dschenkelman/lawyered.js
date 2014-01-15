@@ -1,0 +1,23 @@
+{
+  "name": "contracts",
+  "version": "0.0.0",
+  "description": "A simple module to implement design by contract in node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dschenkelman/contracts"
+  },
+  "keywords": [
+    "code-contracts",
+    "preconditions",
+    "validation"
+  ],
+  "author": "Damian Schenkelman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dschenkelman/contracts/issues"
+  }
+}
