@@ -1,6 +1,6 @@
 lawyered.js
 ========
-A simple lightweight module that allows (design by contract)[http://archive.eiffel.com/eiffel/nutshell.html].
+A simple lightweight module that allows [design by contract](http://archive.eiffel.com/eiffel/nutshell.html).
 
 Installing
 ------------
@@ -72,6 +72,6 @@ console.log(positiveNumberAdder.add(10, 15)); // outputs 25
 
 Inspiration
 -----------
-* (Eiffel)[http://archive.eiffel.com/eiffel/nutshell.html]
-* (Python metaclasses pre/post conditions sample)[http://www.python.org/doc/essays/metaclasses/Eiffel.py]
-* (Code Contracts for .NET extensions)[http://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970]
+* [Eiffel](http://archive.eiffel.com/eiffel/nutshell.html)
+* [Python metaclasses pre/post conditions sample](http://www.python.org/doc/essays/metaclasses/Eiffel.py)
+* [Code Contracts for .NET extensions](http://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970)
