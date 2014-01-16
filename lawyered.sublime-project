@@ -1,0 +1,21 @@
+{
+	"folders":
+	[
+      	{
+    		"path": ".",
+    		"follow_symlinks": true,
+      	},
+	],
+    "settings":
+    {
+        "tab_size": 4
+    },
+    "build_systems": [
+        {
+            "name": "npm test",
+            "shell_cmd": "npm test",
+            "working_dir": "$project_path",
+            "selector": "source.js"
+        }
+    ]
+}

@@ -8,6 +8,8 @@ lcov.info
 *.pid
 *.gz
 
+*.sublime-workspace
+
 pids
 logs
 results
