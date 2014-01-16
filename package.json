@@ -1,6 +1,6 @@
 {
-  "name": "lawyered.js",
-  "version": "0.0.0",
+  "name": "lawyered",
+  "version": "0.1.0",
   "description": "A simple module to implement design by contract in node.js",
   "main": "lib/index.js",
   "scripts": {

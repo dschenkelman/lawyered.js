@@ -1,7 +1,7 @@
 var should = require('should'),
 contracts = require('../lib/index.js');
 
-describe('contracts', function(){
+describe('lawyered', function(){
 	describe('evaluations after instrument', function(){
 		it('should invoke method code when method is invoked', function(){
 			var invoked = false;

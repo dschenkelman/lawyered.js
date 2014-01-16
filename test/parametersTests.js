@@ -1,7 +1,7 @@
 var should = require('should'),
 contracts = require('../lib/index.js');
 
-describe('contracts', function(){
+describe('lawyered', function(){
 	describe('prencondition parameters', function(){
 		it('should pass method parameters to precondition', function(){
 			var params = [];

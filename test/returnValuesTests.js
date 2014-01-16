@@ -1,8 +1,8 @@
 var should = require('should'),
 contracts = require('../lib/index.js');
 
-describe('contracts', function(){
-	describe('return values after instrument', function(){
+describe('lawyered', function(){
+	describe('method return values after instrumenting object', function(){
 		it('should return the same value the original method returned', function(){
 			var toReturn = 'returnValue';
 
