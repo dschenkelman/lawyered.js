@@ -11,8 +11,9 @@ npm install lawyered
 Summary
 ------------
 This module allows you to run code before and after your methods, giving you the possibility to verify that certain conditions are met. The module relies on conventions to determine which methods should be run as pre/post conditions for a particular method.
-* Preconditions method are expected to append "_pre" to the name of the original method.
-* Postconditions method are expected to append "_post" to the name of the original method.
+* Preconditions methods are expected to append "_pre" to the name of the original method.
+* Postconditions methods are expected to append "_post" to the name of the original method.
+* The invariant method should be named "_invariant".
 
 Simple cases
 ------------
@@ -43,31 +44,41 @@ Features:
 
 * All methods (pre, original and post) receive original method parameters.
 * Post condition methods receives value returned from original method as last parameter.
+* The invariant method runs after every method. It is invoked after the postcondition or the method itself if the method does not have a postcondition.
 
 ```JavaScript
+"use strict";
+
 var law = require('lawyered');
 var Assert = require('assert');
 
 var value = 0;
 
 var positiveNumberAdder = {
+    total: 0,
     add_pre: function(a, b){
         Assert.ok(a > 0);
         Assert.ok(b > 0);
     },
     add: function(a, b){
-        return a + b;
+        var partial = a + b;
+        this.total = partial;
+        return partial;
     },
     add_post: function(a, b, returnValue){
         Assert.ok(returnValue > a);
         Assert.ok(returnValue > b);
         Assert.equal(a + b, returnValue);
     },
-}
+    _invariant: function(){
+        Assert.ok(this.total > 0);
+    }
+};
 
 law.instrument(positiveNumberAdder);
 
 console.log(positiveNumberAdder.add(10, 15)); // outputs 25
+console.log(positiveNumberAdder.add(1, 2)); // outputs 3
 ```
 
 Inspiration

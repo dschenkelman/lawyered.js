@@ -7,7 +7,7 @@ require('should');
 var contracts = require('../lib/index.js');
 
 describe('lawyered', function(){
-	describe('prencondition parameters', function(){
+	describe('precondition parameters', function(){
 		it('should pass method parameters to precondition', function(){
 			var params = [];
 
@@ -150,6 +150,26 @@ describe('lawyered', function(){
 			obj.m(1, 2, 3);
 
 			toReturn.should.equal(returnedValue);
+		});
+	});
+
+	describe('invariant parameters', function(){
+		it('should pass correct instance to invariant', function(){
+			var instance = null;
+
+			var obj = {
+				m: function(){
+				},
+				_invariant: function(){
+					instance = this;
+				}
+			};
+
+			contracts.instrument(obj);
+
+			obj.m();
+
+			obj.should.equal(instance);
 		});
 	});
 });
