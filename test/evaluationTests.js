@@ -189,5 +189,97 @@ describe('lawyered', function(){
 			obj.attr.value.should.equal(10);
 			calls.length.should.equal(0);
 		});
+
+		it('should evaluate invariant after method with no pre and postconditions', function(){
+			var calls = [];
+
+			var obj = contracts.instrument({
+				m: function(){
+					calls.push('m');
+				},
+				_invariant: function(){
+					calls.push('invariant');
+				},
+			});
+
+			obj.m();
+
+			calls.length.should.equal(2);
+			calls[0].should.equal('m');
+			calls[1].should.equal('invariant');
+		});
+
+		it('should evaluate invariant after method with only precondition', function(){
+			var calls = [];
+
+			var obj = contracts.instrument({
+				m: function(){
+					calls.push('m');
+				},
+				m_pre: function(){
+					calls.push('m_pre');
+				},
+				_invariant: function(){
+					calls.push('invariant');
+				},
+			});
+
+			obj.m();
+
+			calls.length.should.equal(3);
+			calls[0].should.equal('m_pre');
+			calls[1].should.equal('m');
+			calls[2].should.equal('invariant');
+		});
+
+		it('should evaluate invariant after postcondition of method with only postcondition', function(){
+			var calls = [];
+
+			var obj = contracts.instrument({
+				m: function(){
+					calls.push('m');
+				},
+				m_post: function(){
+					calls.push('m_post');
+				},
+				_invariant: function(){
+					calls.push('invariant');
+				},
+			});
+
+			obj.m();
+
+			calls.length.should.equal(3);
+			calls[0].should.equal('m');
+			calls[1].should.equal('m_post');
+			calls[2].should.equal('invariant');
+		});
+
+		it('should evaluate invariant after postcondition of method with both pre and postcondition', function(){
+			var calls = [];
+
+			var obj = contracts.instrument({
+				m_pre: function(){
+					calls.push('m_pre');
+				},
+				m: function(){
+					calls.push('m');
+				},
+				m_post: function(){
+					calls.push('m_post');
+				},
+				_invariant: function(){
+					calls.push('invariant');
+				},
+			});
+
+			obj.m();
+
+			calls.length.should.equal(4);
+			calls[0].should.equal('m_pre');
+			calls[1].should.equal('m');
+			calls[2].should.equal('m_post');
+			calls[3].should.equal('invariant');
+		});
 	});
 });
