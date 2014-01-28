@@ -20,5 +20,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dschenkelman/lawyered.js/issues"
+  },
+  "jshintConfig": {
+    "strict": "true",
+    "globalstrict": "true"
   }
 }
