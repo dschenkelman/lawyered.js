@@ -1,5 +1,10 @@
-var should = require('should'),
-contracts = require('../lib/index.js');
+'use strict';
+
+/*jshint node:true */
+/*global describe, it*/
+
+require('should');
+var contracts = require('../lib/index.js');
 
 describe('lawyered', function(){
 	describe('prencondition parameters', function(){
@@ -7,7 +12,7 @@ describe('lawyered', function(){
 			var params = [];
 
 			var obj = {
-					m: function(p1, p2, p3){
+					m: function(){
 					},
 					m_pre: function(p1, p2, p3){
 						params.push(p1);
@@ -54,7 +59,7 @@ describe('lawyered', function(){
 						params.push(p2);
 						params.push(p3);
 					},
-					m_pre: function(p1, p2, p3){
+					m_pre: function(){
 					}
 				};
 
@@ -92,7 +97,7 @@ describe('lawyered', function(){
 			var params = [];
 
 			var obj = {
-					m: function(p1, p2, p3){
+					m: function(){
 					},
 					m_post: function(p1, p2, p3){
 						params.push(p1);
@@ -128,10 +133,11 @@ describe('lawyered', function(){
 			obj.should.equal(instance);
 		});
 		it('should pass return value as last postcondition parameter', function(){
-			var toReturn = "returnValue";
+			var toReturn = 'returnValue',
+			returnedValue = null;
 
 			var obj = {
-					m: function(p1, p2, p3){
+					m: function(){
 						return toReturn;
 					},
 					m_post: function(p1, p2, p3, returnValue){
