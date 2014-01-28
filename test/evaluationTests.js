@@ -1,5 +1,10 @@
-var should = require('should'),
-contracts = require('../lib/index.js');
+'use strict';
+
+/*jshint node:true */
+/*global describe, it*/
+
+require('should');
+var contracts = require('../lib/index.js');
 
 describe('lawyered', function(){
 	describe('evaluations after instrument', function(){
@@ -56,8 +61,7 @@ describe('lawyered', function(){
 			calls[1].should.equal('m_post');
 		});
 
-		it('should evaluate preconditions before and postconditions after method is invoked', 
-			function(){
+		it('should evaluate preconditions before and postconditions after method is invoked', function(){
 				var calls = [];
 				var obj = {
 					m: function(){
@@ -81,8 +85,7 @@ describe('lawyered', function(){
 			}
 		);
 
-		it('should evaluate preconditions of each method before it is invoked', 
-			function(){
+		it('should evaluate preconditions of each method before it is invoked', function(){
 				var calls = [];
 				var obj = {
 					m: function(){
@@ -111,8 +114,7 @@ describe('lawyered', function(){
 			}
 		);
 
-		it('should evaluate postconditions of each method after it is invoked', 
-			function(){
+		it('should evaluate postconditions of each method after it is invoked', function(){
 				var calls = [];
 				var obj = {
 					m: function(){
@@ -141,8 +143,7 @@ describe('lawyered', function(){
 			}
 		);
 
-		it('should not evaluate preconditions before preconditions methods is invoked', 
-			function(){
+		it('should not evaluate preconditions before preconditions methods is invoked', function(){
 				var calls = [];
 				var obj = {
 					m_pre: function(){
@@ -159,8 +160,7 @@ describe('lawyered', function(){
 			}
 		);
 
-		it('should not evaluate postconditions after postconditions methods is invoked', 
-			function(){
+		it('should not evaluate postconditions after postconditions methods is invoked', function(){
 				var calls = [];
 				var obj = {
 					m_post: function(){
@@ -178,8 +178,7 @@ describe('lawyered', function(){
 		);
 
 
-		it('should not modify non methods', 
-			function(){
+		it('should not modify non methods', function(){
 				var calls = [];
 				var obj = {
 					attr: {

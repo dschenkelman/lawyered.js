@@ -1,5 +1,10 @@
-var should = require('should'),
-contracts = require('../lib/index.js');
+'use strict';
+
+/*jshint node:true */
+/*global describe, it*/
+
+require('should');
+var contracts = require('../lib/index.js');
 
 describe('lawyered', function(){
 	describe('instrument', function(){
@@ -9,14 +14,14 @@ describe('lawyered', function(){
 
 			var obj = contracts.instrument({
 				m: function(){
-					invocations.push("m");
+					invocations.push('m');
 					return toReturn;
 				},
 				m_post: function(){
-					invocations.push("m_post");
+					invocations.push('m_post');
 				},
 				m_pre: function(){
-					invocations.push("m_pre");
+					invocations.push('m_pre');
 				}
 			});
 
@@ -24,9 +29,9 @@ describe('lawyered', function(){
 
 			returnedValue.should.equal(toReturn);
 			invocations.length.should.equal(3);
-			invocations[0].should.equal("m_pre");
-			invocations[1].should.equal("m");
-			invocations[2].should.equal("m_post");
+			invocations[0].should.equal('m_pre');
+			invocations[1].should.equal('m');
+			invocations[2].should.equal('m_post');
 		});
 	});
 });

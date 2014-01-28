@@ -1,5 +1,10 @@
-var should = require('should'),
-contracts = require('../lib/index.js');
+'use strict';
+
+/*jshint node:true */
+/*global describe, it*/
+
+require('should');
+var contracts = require('../lib/index.js');
 
 describe('lawyered', function(){
 	describe('method return values after instrumenting object', function(){
