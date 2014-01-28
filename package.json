@@ -1,10 +1,11 @@
 {
   "name": "lawyered",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple module to implement design by contract in node.js",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "pretest": "find lib test -name '*.js' -print0 | xargs -0 jshint"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dschenkelman/lawyered.js/issues"
+  },
+  "jshintConfig": {
+    "strict": "true",
+    "globalstrict": "true"
   }
 }
